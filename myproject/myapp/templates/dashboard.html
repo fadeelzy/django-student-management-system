@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Side Navigation -->
+    <nav class="sidebar">
+        <div class="logo-container">
+            <img src="{% static 'images/paritie.jpeg' %}" alt="Company Logo" class="logo">
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item active">
+                <a href="{% url 'dashboard' %}" class="nav-link">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'student' %}" class="nav-link">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>Student</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'course' %}" class="nav-link">
+                    <i class="fas fa-book"></i>
+                    <span>Course</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'revenue' %}"  class="nav-link">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Revenue</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'settings' %}"  class="nav-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+        
+        <div class="logout-section">
+            <a href="{% url 'logout' %}"  class="nav-link logout-link">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="top-header">
+            <div class="search-container">
+                <input type="text" placeholder="Search..." class="search-input">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            
+            <div class="header-actions">
+                <a href="{% url 'settings' %}"  class="header-btn">
+                    <i class="fas fa-cog"></i>
+                </a>
+                <a href="{% url 'logout' %}"  class="header-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </div>
+        </header>
+        <div class="dashboard-content">
+            <!-- Statistics Boxes -->
+            <div class="stats-container">
+                <div class="stat-box">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Number of Students</h3>
+                        <p class="stat-number">{{total_students}}</p>
+                    </div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Number of Courses</h3>
+                        <p class= "stat-number">{{total_courses}}</p>
+                    </div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-naira-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Revenue</h3>
+                        <p class="stat-number">{{total_revenue}}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Charts Section -->
+            <div class="charts-container">
+                <div class="chart-box">
+                    <div class="chart-header">
+                        <h3>Revenue Activities Per Month</h3>
+                    </div>
+                    <canvas id="studentsChart"></canvas>
+                </div>
+                
+                <div class="chart-box">
+                    <div class="chart-header">
+                        <h3>Monthly Revenue Trend</h3>
+                    </div>
+                    <canvas id="revenueChart"></canvas>
+                </div>
+            </div>
+            
+            <script>
+                window.revenueData = {{ revenue_data|safe }};
+            </script>
+            
+            <script src="{% static 'common.js' %}"></script>
+            <script src="{% static 'dashboard.js' %}"></script>
+</body>
+</html>

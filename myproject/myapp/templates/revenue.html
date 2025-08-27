@@ -1,0 +1,116 @@
+<!DOCTYPE html> 
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revenue</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Side Navigation -->
+    <nav class="sidebar">
+        <div class="logo-container">
+            <img src="{% static 'images/paritie.jpeg' %}" alt="Company Logo" class="logo">
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="{% url 'dashboard' %}" class="nav-link">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'student' %}" class="nav-link">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>Student</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'course' %}" class="nav-link">
+                    <i class="fas fa-book"></i>
+                    <span>Course</span>
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a href="{% url 'revenue' %}" class="nav-link">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Revenue</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'settings' %}" class="nav-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+        
+        <div class="logout-section">
+            <a href="{% url 'logout' %}" class="nav-link logout-link">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Revenue Analytics</h1>
+        </div>
+
+
+        <div class="revenue-container">
+            <!-- ✅ Charts -->
+            <div class="chart-container">
+                <div class="chart-box">
+                    <div class="chart-header">
+                        <h3>Revenue by Course</h3>
+                    </div>
+                    <canvas id="courseRevenueChart"></canvas>
+                </div>
+                
+                <div class="chart-box">
+                    <div class="chart-header">
+                        <h3>Monthly Revenue Trend</h3>
+                    </div>
+                    <canvas id="monthlyRevenueChart"></canvas>
+                </div>
+            </div>
+
+            <!-- ✅ Revenue Breakdown -->
+            <div class="revenue-summary">
+                <h3>Revenue Breakdown by Course</h3>
+                <div class="summary-grid">
+                    {% for course, amount in revenue_summary.items %}
+                    <div class="summary-item">
+                        <h4>{{ course }}</h4>
+                        <p class="revenue-amount" data-value="{{ amount|default:0 }}">₦0</p>
+                    </div>
+                    {% empty %}
+                    <p>No revenue data available yet.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pass Django data to JS -->
+    <script>
+        window.revenueData = {
+            courses: {{ revenue_summary|safe }},
+            monthly: {{ monthly_revenue|safe }}
+        };
+    </script>
+
+    <script src="{% static 'revenue.js' %}"></script>
+    <script src="{% static 'common.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Registration Receipt</title>
+    <style>
+        @page {
+            margin: 0;
+        }
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            position: relative;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(90deg, #ff9a9e, #fad0c4, #fbc2eb);
+        }
+
+        .header img {
+            height: 80px;
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+            color: #fff;
+        }
+
+        .receipt-container {
+            padding: 60px 80px;
+        }
+
+        .field-group {
+            margin-bottom: 35px;
+            font-size: 22px;
+        }
+
+        .field-label {
+            font-weight: bold;
+            color: #666;
+        }
+
+        .field-value {
+            margin-left: 12px;
+        }
+
+        .thank-you {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #e67e22;
+        }
+
+        /* PAID stamp */
+        .paid-stamp {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-18deg);
+            font-size: 140px;
+            font-weight: 900;
+            color: rgba(230, 70, 70, 0.15);
+            border: 8px solid rgba(230, 70, 70, 0.15);
+            padding: 20px 60px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="paid-stamp">PAID</div>
+
+<div class="header">
+    <img src="{% static 'images/paritie.jpeg' %}" alt="Company Logo" class="logo">
+</div>
+
+<div class="receipt-container">
+
+    <div class="field-group">
+        <span class="field-label"><strong>Name:</strong></span>
+        <span class="field-value">{{ student.student_name }}</span>
+    </div>
+    <div class="field-group">
+        <span class="field-label"><strong>Course:</strong></span>
+        <span class="field-value">{{ student.course_of_interest }}</span>
+    </div>
+    <div class="field-group">
+        <span class="field-label"><strong>Duration:</strong></span>
+        <span class="field-value">{{ student.course_duration }}</span>
+    </div>
+    <div class="field-group">
+        <span class="field-label"><strong>Fee:</strong></span>
+        <span class="field-value">₦{{ student.enrollment_fee }}</span>
+    </div>
+
+    <div class="thank-you">Thank you for registering!</div>
+</div>
+
+</body>
+</html>

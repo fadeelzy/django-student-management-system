@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Side Navigation -->
+    <nav class="sidebar">
+        <div class="logo-container">
+            <img src="{% static 'images/paritie.jpeg' %}" alt="Company Logo" class="logo">
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item active">
+                <a href="{% url 'dashboard' %}" class="nav-link">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'student' %}" class="nav-link">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>Student</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'course' %}" class="nav-link">
+                    <i class="fas fa-book"></i>
+                    <span>Course</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'revenue' %}"  class="nav-link">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Revenue</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'settings' %}"  class="nav-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+        
+        <div class="logout-section">
+            <a href="{% url 'logout' %}"  class="nav-link logout-link">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Settings & Help</h1>
+        </div>
+
+        <div class="settings-container">
+            <div class="settings-section">
+                <h2>Navigation Help</h2>
+                <div class="help-grid">
+                    <div class="help-item">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <h3>Dashboard</h3>
+                        <p>View overview statistics, revenue activities per month, and revenue trends. Use the search bar to find specific information.</p>
+                    </div>
+                    
+                    <div class="help-item">
+                        <i class="fas fa-user-graduate"></i>
+                        <h3>Student Registration</h3>
+                        <p>Register new students by filling out the form with their name, course interest, duration, and enrollment fee.</p>
+                    </div>
+                    
+                    <div class="help-item">
+                        <i class="fas fa-book"></i>
+                        <h3>Course Management</h3>
+                        <p>Browse available courses including Data Analysis, Web Development, Graphics Design, Digital Marketing, and Content Creation.</p>
+                    </div>
+                    
+                    <div class="help-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Revenue Analytics</h3>
+                        <p>View detailed revenue reports by course and monthly trends to track financial performance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2>Quick Actions</h2>
+                <div class="action-grid">
+                    <a href="{% url 'student' %}" class="action-btn">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Register New Student</span>
+                    </a>
+                    
+                    <a href="{% url 'course' %}" class="action-btn">
+                        <i class="fas fa-book-open"></i>
+                        <span>View Courses</span>
+                    </a>
+                    
+                    <a href="{% url 'revenue' %}"class="action-btn">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>View Revenue Reports</span>
+                    </a>
+                    
+                    <a href="{% url 'dashboard' %}" class="action-btn">
+                        <i class="fas fa-home"></i>
+                        <span>Back to Dashboard</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2>Support Information</h2>
+                <div class="support-info">
+                    <div class="info-item">
+                        <h3>Having trouble navigating?</h3>
+                        <p>Use the sidebar menu to navigate between different sections. The active page is highlighted in the navigation.</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h3>Need to register multiple students?</h3>
+                        <p>Go to the Student page and use the registration form. The form will validate your input and confirm successful registration.</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h3>Want to see revenue data?</h3>
+                        <p>The Revenue page provides comprehensive charts and summaries of income generated from each course.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="{% static 'common.js' %}"></script>
+</body>
+</html>
