@@ -107,6 +107,11 @@ Advanced filtering & search
 
 Templated email receipts
 
+👨‍💻 Author
+Fadilah Abdulkadir
+Site Reliability Engineer | Backend Developer | AWS Cloud Solutions Architect
+Aspiring Full-Stack Developer | Django Enthusiast | Python Avid
+
 💎 Why This Project Stands Out
 
 Clean Architecture: Easy to maintain and extend
@@ -134,12 +139,6 @@ student_management_system/
 ├── db.sqlite3
 ├── requirements.txt
 └── .env
-
-👨‍💻 Author
-Fadilah Abdulkadir
-Site Reliability Engineer | Backend Developer | AWS Cloud Solutions Architect
-Aspiring Full-Stack Developer | Django Enthusiast | Python Avid
-
 
 
 
