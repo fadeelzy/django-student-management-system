@@ -9,13 +9,13 @@
 </head>
 <body>
     <div class= "success-head">
-        <h3>Student Registered successfully!</h3>
+        <h3>Member Registered successfully!</h3>
     </div>
     <div class="form-wrapper">
         <div class="form-container">
             <h2>Get Your Receipt</h2>
             <p>Enter your email to receive a receipt.</p>
-            <form method="POST" action="{% url 'success' student.id %}">
+            <form method="POST" action="{% url 'success_member' member.id %}">
                 {% csrf_token %}
                 <input type="email" name="email" placeholder="Enter your email" required>
                 <button type="submit">Press enter</style></button>

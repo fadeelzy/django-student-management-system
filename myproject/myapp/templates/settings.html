@@ -32,6 +32,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{% url 'members' %}" class="nav-link">
+                   <i class="fas fa-users"></i>
+                   <span>Member</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{% url 'course' %}" class="nav-link">
                     <i class="fas fa-book"></i>
                     <span>Course</span>
@@ -80,9 +86,14 @@
                         <h3>Student Registration</h3>
                         <p>Register new students by filling out the form with their name, course interest, duration, and enrollment fee.</p>
                     </div>
+                    <div class="help-item">
+                        <i class="fas fa-users"></i>
+                        <h3>Member Registration</h3>
+                        <p>Register new Members by filling out the form with their name, payment plan, duration, and enrollment fee.</p>
+                    </div>
                     
                     <div class="help-item">
-                        <i class="fas fa-book"></i>
+                        <i class="fas fa-book"></i> 
                         <h3>Course Management</h3>
                         <p>Browse available courses including Data Analysis, Web Development, Graphics Design, Digital Marketing, and Content Creation.</p>
                     </div>
@@ -101,6 +112,10 @@
                     <a href="{% url 'student' %}" class="action-btn">
                         <i class="fas fa-user-plus"></i>
                         <span>Register New Student</span>
+                    </a>
+                       <a href="{% url 'members' %}" class="action-btn">
+                        <i class="fas fa-users"></i>
+                        <span>Register New Member</span>
                     </a>
                     
                     <a href="{% url 'course' %}" class="action-btn">
@@ -131,6 +146,12 @@
                     <div class="info-item">
                         <h3>Need to register multiple students?</h3>
                         <p>Go to the Student page and use the registration form. The form will validate your input and confirm successful registration.</p>
+                    </div>
+
+                    
+                    <div class="info-item">
+                        <h3>Need to register a co-worker member?</h3>
+                        <p>Go to the Member page and use the registration form. The form will validate your input and confirm successful registration.</p>
                     </div>
                     
                     <div class="info-item">

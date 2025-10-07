@@ -33,6 +33,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{% url 'members' %}" class="nav-link">
+                   <i class="fas fa-users"></i>
+                   <span>Member</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{% url 'course' %}" class="nav-link">
                     <i class="fas fa-book"></i>
                     <span>Course</span>
@@ -72,14 +78,14 @@
             <div class="chart-container">
                 <div class="chart-box">
                     <div class="chart-header">
-                        <h3>Revenue by Course</h3>
+                        <h3>Revenue by Student Course</h3>
                     </div>
                     <canvas id="courseRevenueChart"></canvas>
                 </div>
                 
                 <div class="chart-box">
                     <div class="chart-header">
-                        <h3>Monthly Revenue Trend</h3>
+                        <h3> Members Monthly Revenue</h3>
                     </div>
                     <canvas id="monthlyRevenueChart"></canvas>
                 </div>
@@ -106,7 +112,7 @@
     <script>
         window.revenueData = {
             courses: {{ revenue_summary|safe }},
-            monthly: {{ monthly_revenue|safe }}
+            monthly: {{ monthly_member_revenue|safe }}
         };
     </script>
 

@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'myapp'
 ]
 
@@ -126,4 +127,4 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True 
 EMAIL_USE_SSL = False  
 EMAIL_HOST_USER = 'fadeelzy@gmail.com'
-EMAIL_HOST_PASSWORD = 'zgkwxqyfxiyiwjbe'
+EMAIL_HOST_PASSWORD = 'dfwwlcjfqqueahll'

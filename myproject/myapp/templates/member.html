@@ -67,36 +67,34 @@
     <main class="main-content">
         <div class="page-header">
             <img src="{% static 'images/paritie.jpeg' %}" alt="Company Logo" class="logo">
-            <h1>Student Registration Form</h1>
+            <h1>Register a New Member</h1>
         </div>
         <div class="registration-container">
-            <form id="studentForm" class="registration-form" method="post">
+            <form id="memberForm" class="registration-form" method="post">
                 {% csrf_token %}
                 <div class="form-group">
-                    <label for="studentName">Student Name</label>
-                    <input type="text" id="studentName" name="studentName" required>
+                    <label for="memberName">Full Name</label>
+                    <input type="text" id="memberName" name="memberName" required>
                     <span class="error-message" id="nameError"></span>
                 </div>
         
                 <div class="form-group">
-                    <label for="courseInterest">Course of Interest</label>
-                    <select id="courseInterest" name="courseInterest" required>
-                        <option value="">-- Select a course --</option>
-                        {% for course in courses %}
-                            <option value="{{ course.id }}">{{ course.name }}</option>
-                        {% endfor %}
+                    <label for="plan">Choose Plan</label>
+                    <select id="plan" name="plan" required>
+                        <option value="">-- Select a Plan --</option>
+                        <option value="Basic">Basic Plan</option>
+                        <option value="Premium">Premium Plan</option>
                     </select>
                     <span class="error-message" id="courseError"></span>
                 </div>
         
                 <div class="form-group">
-                    <label for="courseDuration">Course Duration</label>
-                    <select id="courseDuration" name="courseDuration" required>
+                    <label for="duration">Choose Duration</label>
+                    <select id="duration" name="courseDuration" required>
                         <option value="">Select duration</option>
-                        <option value="3-months">3 Months</option>
-                        <option value="6-months">6 Months</option>
-                        <option value="9-months">9 Months</option>
-                        <option value="12-months">12 Months</option>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
                     </select>
                     <span class="error-message" id="durationError"></span>
                 </div>
@@ -107,20 +105,19 @@
                     <span class="error-message" id="feeError"></span>
                 </div>
         
-                <button type="submit" class="register-btn">Register Student</button>
+                <button type="submit" class="register-btn">Register Member</button>
             </form>
         </div>
         
         
             <div id="successMessage" class="success-message" style="display: none;">
                 <i class="fas fa-check-circle"></i>
-                <p>Student registered successfully!</p>
+                <p>Member registered successfully!</p>
             </div>
         </div>
     </main>
 
     <script src="{% static 'common.js' %}"></script>
-    <script src="{% static 'dashboard.js' %}"></script>
    
 </body>
 </html>

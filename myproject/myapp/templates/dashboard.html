@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 {% load static %}
+{% load humanize %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -30,6 +31,12 @@
                 <a href="{% url 'student' %}" class="nav-link">
                     <i class="fas fa-user-graduate"></i>
                     <span>Student</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'members' %}" class="nav-link">
+                   <i class="fas fa-users"></i>
+                   <span>Member</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -79,7 +86,7 @@
         <div class="dashboard-content">
             <!-- Statistics Boxes -->
             <div class="stats-container">
-                <div class="stat-box">
+               <a href="{% url 'students_list' %}" class="stat-box">
                     <div class="stat-icon">
                         <i class="fas fa-users"></i>
                     </div>
@@ -87,9 +94,9 @@
                         <h3>Number of Students</h3>
                         <p class="stat-number">{{total_students}}</p>
                     </div>
-                </div>
-                
-                <div class="stat-box">
+                </a>
+
+               <a href="{% url 'courses_list' %}" class="stat-box">
                     <div class="stat-icon">
                         <i class="fas fa-book-open"></i>
                     </div>
@@ -97,17 +104,28 @@
                         <h3>Number of Courses</h3>
                         <p class= "stat-number">{{total_courses}}</p>
                     </div>
-                </div>
-                
+                </a>
+
+               <a href="{% url 'members_list' %}" class="stat-box">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Number of Members</h3>
+                        <p class= "stat-number">{{total_members}}</p>
+                    </div>
+                </a>
+
                 <div class="stat-box">
                     <div class="stat-icon">
                         <i class="fa-solid fa-naira-sign"></i>
                     </div>
                     <div class="stat-info">
                         <h3>Total Revenue</h3>
-                        <p class="stat-number">{{total_revenue}}</p>
+                        <p class="stat-number">{{total_revenue|intcomma }}</p>
                     </div>
                 </div>
+
             </div>
             <!-- Charts Section -->
             <div class="charts-container">
