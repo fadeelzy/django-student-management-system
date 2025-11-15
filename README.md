@@ -1,7 +1,7 @@
 # 🎓 Django Student Management System
 
 A sleek, **user-friendly** Student Management System built with **Django**.  
-Designed for educational institutions to manage students, courses, revenue, settings, and send **PDF receipts via email**.  
+Designed for educational institutions to manage students, courses, members, revenue, settings, and send **PDF receipts via email**.  
 
 
 ---
