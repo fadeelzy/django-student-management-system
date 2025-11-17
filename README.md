@@ -1,22 +1,27 @@
-# 🎓 Django Student Management System
+🎓 Paritie Student Management System
 
-A sleek, **user-friendly** Student Management System built with **Django**.  
-Designed for educational institutions to manage students, courses, members, revenue, settings, and send **PDF receipts via email**.  
+A sleek, user-friendly Student Management System built with Django.
+Designed for Paritie Innovation Hub to manage students, co-workers (members), courses, revenue, settings, and send PDF receipts via email.
 
+🚀 Features
 
----
+Feature	Description
 
-## 🚀 Features & Live Demo
+🏠 Dashboard	Overview of students, members, courses, and revenue.
 
-| Feature | Description | Demo |
-|---------|-------------|------|
-| 🏠 **Dashboard** | Overview of students, courses, and revenue. | [Live Demo](#) |
-| 👩‍🎓 **Student Management** | Add, view, update, and delete students. | [Live Demo](#) |
-| 📚 **Course Management** | Manage courses and enrollments. | [Live Demo](#) |
-| 💰 **Revenue Tracking** | Interactive monthly revenue charts. | [Live Demo](#) |
-| ⚙️ **Settings** | Securely update app configurations. | [Live Demo](#) |
-| 🔒 **Logout** | End session securely. | [Live Demo](#) |
-| 📨 **PDF Receipt Email** | Send PDF receipts after registration. | [Live Demo](#) |
+👩‍🎓 Student Management	Add, view, update, and delete students.
+
+🧑‍💼 Member Management	Manage co-workers and their membership plans.
+
+📚 Course Management	Add, view, and manage courses and enrollments.
+
+💰 Revenue Tracking	Interactive monthly revenue charts for students and members.
+
+⚙️ Settings	Securely update app configurations.
+
+🔒 Logout	End session securely.
+
+📨 PDF Receipt Email	Automatically send PDF receipts after registration.
 
 ---
 
@@ -24,7 +29,7 @@ Designed for educational institutions to manage students, courses, members, reve
 
 ![Python](https://img.shields.io/badge/python-3.11-blue)
 ![Django](https://img.shields.io/badge/django-4.2-green)
-![SQLite](https://img.shields.io/badge/database-SQLite-orange)
+![Database: MySQL (hosted on Aiven Cloud)](https://img.shields.io/badge/database-SQLite-orange)
 ![Chart.js](https://img.shields.io/badge/charts-Chart.js-red)
 ![PDF](https://img.shields.io/badge/PDF-WeasyPrint-yellow)
 ![Email](https://img.shields.io/badge/email-SMTP-lightgrey)
@@ -35,36 +40,16 @@ Designed for educational institutions to manage students, courses, members, reve
 
 | Path | View | Description |
 |------|------|-------------|
+| `/` |Login page, available only for registered users in the admin|
 | `/` | 🏠 Dashboard | Overview of students, courses, and revenue. |
 | `/students/` | 👩‍🎓 Students | Add, view, and manage students. |
+| `/members/` | 👩‍🎓 Members | Add, view, and manage members. |
 | `/courses/` | 📚 Courses | Manage courses and enrollments. |
 | `/revenue/` | 💰 Revenue | Interactive charts for revenue tracking. |
 | `/settings/` | ⚙️ Settings | Update app configurations securely. |
-| `/logout/` | 🔒 Logout | End your session securely. |
+| `/logout/` | 🔒 Logout | End your session securely and back to login page. |
 
 ---
-
-## 📸 Screenshots
-**🏠 Dashboard:**  
-![Dashboard Screenshot](assets/dashboard.png)  
-
-**👩‍🎓 Student Management:**  
-![Students Screenshot](assets/Student-registration-form.png)  
-
-**📚 Course Overview:**  
-![Courses Screenshot](assets/course-overview.png)  
-
-**💰 Revenue Analytics:**  
-![Revenue Screenshot](assets/revenue-analytics.png)  
-
-**⚙️ Settings Page:**  
-![Settings Screenshot](assets/Settings-page.png)  
-
-**🔒 Logout Page:**  
-![Logout Screenshot](assets/logout-page.png)  
-
-**📝 PDF Receipt via Email:**  
-![PDF Receipt Screenshot](assets/receipt.png)  
 
 
 ---
@@ -129,8 +114,10 @@ student_management_system/
 │   ├── models.py
 │   ├── views.py
 │   ├── templates/
+│   │   ├── login.html
 │   │   ├── dashboard.html
 │   │   ├── students.html
+│   │   ├── members.html
 │   │   ├── courses.html
 │   │   ├── revenue.html
 │   │   ├── settings.html
