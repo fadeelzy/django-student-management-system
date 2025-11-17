@@ -9,22 +9,18 @@ FROM python:3.11-slim
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-# Install system dependencies for mysqlclient, lxml, reportlab, etc.
+# Install system dependencies for MySQL, PDFs, images
 RUN apt-get update && apt-get install -y \
     build-essential \
     default-libmysqlclient-dev \
-    libpq-dev \
-    libffi-dev \
     libssl-dev \
-    libxml2-dev \
-    libxslt1-dev \
-    zlib1g-dev \
+    libffi-dev \
+    pkg-config \
     libcairo2 \
     libpango-1.0-0 \
     libpangocairo-1.0-0 \
-    libgdk-pixbuf-2.0-0 \
+    libgdk-pixbuf-xlib-2.0-0 \
     shared-mime-info \
-    pkg-config \
     && rm -rf /var/lib/apt/lists/*
     
 
