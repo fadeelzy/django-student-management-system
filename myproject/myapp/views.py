@@ -10,9 +10,34 @@ from datetime import datetime
 import calendar
 from django.db.models.functions import TruncMonth
 from django.db.models.functions import ExtractMonth
+from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+
+
 
 # Create your views here
 
+def login_view(request):
+    error = None  # default
+
+    if request.method == "POST":
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+
+        user = authenticate(request, username=email, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('dashboard')  # redirect to dashboard
+        else:
+            error = "Invalid email or password"
+
+    return render(request, "login.html", {"error": error})
+
+@login_required
 def home(request):
     # --- Summary Cards ---
     total_students = Student.objects.count()
@@ -218,7 +243,6 @@ def revenue(request):
 def settings(request):
     return render(request, 'settings.html')
 
-def logout(request):
-    return render(request, 'logout.html')
-
-
+def logout_view(request):
+    logout(request)
+    return redirect('login')
