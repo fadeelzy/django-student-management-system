@@ -4,15 +4,25 @@ A sleek, user-friendly Student Management System built with Django.
 Designed for Paritie Innovation Hub to manage students, co-workers (members), courses, revenue, settings, and send PDF receipts via email.
 
 🚀 Features
+
 Feature	Description
+
 🏠 Dashboard	Overview of students, members, courses, and revenue.
+
 👩‍🎓 Student Management	Add, view, update, and delete students.
+
 🧑‍💼 Member Management	Manage co-workers and their membership plans.
+
 📚 Course Management	Add, view, and manage courses and enrollments.
+
 💰 Revenue Tracking	Interactive monthly revenue charts for students and members.
+
 ⚙️ Settings	Securely update app configurations.
+
 🔒 Logout	End session securely.
+
 📨 PDF Receipt Email	Automatically send PDF receipts after registration.
+
 ---
 
 ## 🛠️ Tech Stack & Badges
